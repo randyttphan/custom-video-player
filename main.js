@@ -6,12 +6,20 @@ const timestamp = document.getElementById("timestamp");
 
 //Play and pause video
 function toggleVideoStatus() {
-  return true;
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
 }
 
 //update play and pause icons
 function updatePlayIcon() {
-  return true;
+  if (video.paused) {
+    play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
+  } else {
+    play.innerHTML = '<i class="fa fa-pause fa-2x"></i>';
+  }
 }
 
 //updating progress and time stamp
@@ -26,7 +34,8 @@ function setVideoProgress() {
 
 //stopping video
 function stopVideo() {
-  return true;
+  video.currentTime = 0;
+  video.pause();
 }
 
 //Event Listeners
